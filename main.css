@@ -1,0 +1,76 @@
+#row {
+  display: flex;
+}
+
+.navbar{
+  margin-top: 5px;
+  margin-left: 300px;
+  width: 750px;
+  height: 60px;
+  border: 2px solid grey;
+  background-color: lightgray;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+}
+.footer-body {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: baseline;
+  bottom: 0;
+  width: 1895px;
+  border: 2px solid grey;
+  background-color: lightgray;
+  height: 50px;
+  margin-bottom: 5px;
+}
+
+.GitSub, .terms, .privacy, .security, .status, .help, .logo, .contact, .pricing, .api, .training, .blog, .about {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.proCard {
+  margin-top: 5px;
+  margin-left: 5px;
+  border: 2px solid grey;
+  background-color: lightgrey;
+  margin-bottom: 50px;
+}
+
+.jinWoo {
+  display: flex;
+  align-items: center;
+  border-radius: 150px;
+  margin-left: 28px;
+  margin-top: 5px;
+}
+
+.chaeWon {
+  width: 42px;
+  height: 42px;
+  border-radius: 180px;
+  margin-left: 2px;
+  margin-bottom: 8px;
+}
+
+.jinChul {
+  width: 42px;
+  height: 42px;
+  border-radius: 180px;
+  margin-left: 2px;
+  margin-bottom: 2px;
+}
+
+.jongIn {
+  width: 42px;
+  height: 42px;
+  border-radius: 180px;
+  margin-left: 2px;
+  margin-bottom: 2px;
+}
