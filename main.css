@@ -4,7 +4,7 @@
 
 .navbar{
   margin-top: 5px;
-  margin-left: 300px;
+  margin-left: 307px;
   width: 750px;
   height: 60px;
   border: 2px solid grey;
@@ -29,6 +29,10 @@
   margin-bottom: 5px;
 }
 
+.proFollowing-body {
+  font-size: 14px;
+}
+
 .GitSub, .terms, .privacy, .security, .status, .help, .logo, .contact, .pricing, .api, .training, .blog, .about {
   margin-top: 10px;
   margin-left: 10px;
@@ -47,8 +51,9 @@
   display: flex;
   align-items: center;
   border-radius: 150px;
-  margin-left: 28px;
+  margin-left: 20px;
   margin-top: 5px;
+  margin-right: 10px;
 }
 
 .chaeWon {
@@ -73,4 +78,61 @@
   border-radius: 180px;
   margin-left: 2px;
   margin-bottom: 2px;
+}
+
+#pinRepo {
+  display: flex;
+  background-color: lightgray;
+  margin-top: 130px;
+  position: absolute;
+  top: 0;
+  margin-left: 600px;
+  /* max-height: 413px; */
+  border: 2px solid grey;
+  padding-bottom: 1px;
+  width: 750px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  min-width: 750px;
+  
+}
+
+.pin {
+  margin-top: 100px;
+  margin-left: 600px;
+}
+.pinCard {
+  max-width: 300px;
+  min-width: 300px;
+  min-height: 148px;
+  max-height: 148px;
+  border: 2px solid grey;
+  margin-bottom: 2px;
+  margin-top: 2px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.repo-form {
+  position: absolute;
+  top: 0;
+}
+
+.pinForm {
+  position: absolute;
+  top: 0;
+  border: 2px solid grey;
+  margin-top: 600px;
+  margin-left: 600px;
+  width: 750px;
+}
+
+.form-btn {
+  padding-left: 3px;
+  padding-bottom: 3px;
+}
+
+#form {
+  position: absolute;
+  top: 0;
 }
