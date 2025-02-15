@@ -82,8 +82,9 @@
 
 #pinRepo {
   display: flex;
+  flex-direction: column;
   background-color: lightgray;
-  margin-top: 130px;
+  margin-top: 120px;
   position: absolute;
   top: 0;
   margin-left: 600px;
@@ -92,9 +93,10 @@
   padding-bottom: 1px;
   width: 750px;
   flex-wrap: wrap;
-  flex-direction: row;
   min-width: 750px;
-  
+  min-height: 461px;
+  max-width: 750px;
+  max-height: 461px;  
 }
 
 .pin {
@@ -102,8 +104,8 @@
   margin-left: 600px;
 }
 .pinCard {
-  max-width: 300px;
-  min-width: 300px;
+  max-width: 367px;
+  min-width: 367px;
   min-height: 148px;
   max-height: 148px;
   border: 2px solid grey;
@@ -118,18 +120,155 @@
   top: 0;
 }
 
-.pinForm {
+#pinForm {
   position: absolute;
   top: 0;
   border: 2px solid grey;
-  margin-top: 600px;
+  margin-top: 590px;
   margin-left: 600px;
   width: 750px;
+  background-color: lightgray;
+ 
 }
+
+.formTitle {
+  margin-left: 23px;
+}
+
+.nameTitle {
+  margin-left: 23px;
+}
+
+.descTitle {
+  margin-left: 23px;
+}
+
+#desc {
+  height: 75px;
+  width: 700px;
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.descText {
+  margin-left: 30px;
+}
+
+.nameText {
+  margin-left: 30px;
+}
+
+#name {
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+  width: 700px;
+}
+
 
 .form-btn {
   padding-left: 3px;
   padding-bottom: 3px;
+  margin-left: 25px;
+}
+
+#form {
+  position: absolute;
+  top: 0;
+}
+
+#packRepo {
+  display: flex;
+  flex-direction: column;
+  background-color: lightgray;
+  margin-top: 120px;
+  position: absolute;
+  top: 0;
+  margin-left: 600px;
+  /* max-height: 413px; */
+  border: 2px solid grey;
+  padding-bottom: 1px;
+  width: 750px;
+  flex-wrap: wrap;
+  min-width: 750px;
+  min-height: 461px;
+  max-width: 750px;
+  max-height: 461px;  
+}
+
+.pack {
+  margin-top: 100px;
+  margin-left: 600px;
+}
+.packCard {
+  max-width: 367px;
+  min-width: 367px;
+  min-height: 148px;
+  max-height: 148px;
+  border: 2px solid grey;
+  margin-bottom: 2px;
+  margin-top: 2px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.repo-form {
+  position: absolute;
+  top: 0;
+}
+
+#packForm {
+  position: absolute;
+  top: 0;
+  border: 2px solid grey;
+  margin-top: 590px;
+  margin-left: 600px;
+  width: 750px;
+  background-color: lightgray;
+ 
+}
+
+.formTitle {
+  margin-left: 23px;
+}
+
+.nameTitle {
+  margin-left: 23px;
+}
+
+.descTitle {
+  margin-left: 23px;
+}
+
+#desc {
+  height: 75px;
+  width: 700px;
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.descText {
+  margin-left: 30px;
+}
+
+.nameText {
+  margin-left: 30px;
+}
+
+#name {
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+  width: 700px;
+}
+
+
+.form-btn {
+  padding-left: 3px;
+  padding-bottom: 3px;
+  margin-left: 25px;
 }
 
 #form {

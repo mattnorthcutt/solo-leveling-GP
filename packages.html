@@ -97,10 +97,10 @@
             <!--<a class="nav-link active" id="overview" aria-current="page" href="">Overview</a>-->
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Repositories</a>
+            <a class="nav-link" id="repos" href="">Repositories</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Projects</a>
+            <a class="nav-link" id="projects" href="">Projects</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="packages.html">Packages</a>
@@ -111,24 +111,25 @@
   </nav>
 </div>
 
-  <div id="pinRepo"></div>
 
-<div id="pinForm">
+  <div id="packRepo"></div>
+
+<div id="packForm">
   <form>
-  <div class="pinForm">
-  <h5 class="formTitle">Create Pinned Repo:</h5>
+  <div class="packForm">
+  <h5 class="formTitle">Create Packages:</h5>
   <div class="form-floating mb-3">
     <input type="text" class="form-control" id="name" placeholder="name" required>
-    <label class="nameText">Pinned Repo Name</label>
+    <label class="nameText" for="floatingInput">Package Name</label>
   </div>
   <div class="desc-form">
   <div class="form-floating mb-3">
     <input type="text" class="form-control" id="desc" placeholder="desc" required>
-    <label class="descText">Description</label>
+    <label class="descText" for="floatingInput">Package Desc.</label>
   </div>
   </div>
   <div class="form-btn">
-    <button type="submit" class="btn btn-primary btn-dark" id="form-submit">Create Repo</button>
+    <button type="submit" class="btn btn-primary btn-dark" id="form-submit">Create Package</button>
   </div>
   </div>
   </form>

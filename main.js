@@ -13,15 +13,34 @@ const pinRepos = [
     id: 3,
     name: "Quantum-coder-chronicles",
     desc: "Dive into the realm of quantum computing, machine learning, and experimental code through Jin Woo's lens."
-  }
+  },
 ]
+
+const packages = [
+  {
+    id: 1,
+    name: "Beru",
+    desc: "A software platform used for building applications based on containers. Small and lightweight environments."
+  },
+  {
+    id: 2,
+    name: "JinWooGems",
+    desc: "A standard format for distributing Ruby programs and libraries used for the Ruby programming language."
+  },
+  {
+    id: 3,
+    name: "Apache Shadow",
+    desc: "A default package manager used for the Java programming language and the Java runtime environment."
+  },
+]
+
 
 const renderToDom = (divId, toRender) => {
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = toRender;
   }
   
-  if (window.location.href.includes("")) {
+  if (window.location.href.includes("index.html")) {
   
   const pinDom = (pinRepos) => {
     let pinString = ""
@@ -91,19 +110,102 @@ const renderToDom = (divId, toRender) => {
   
   }
 
+  if(window.location.href.includes("packages.html")) {
+
+  const packDom = (packages) => {
+    let packString = ""
+    for (const package of packages) {
+      packString += `
+  
+        <div class="packCard w-55">
+    <div class="pack-body">
+      <h5 class="pack-title">${package.name}</h5>
+      <p class="pack-text">${package.desc}</p>
+      </div>
+    </div>
+      
+      `
+    }
+  
+    renderToDom("#packRepo", packString)
+  }
+
+
+const form = document.querySelector("form")
+
+const createPack = (e) => {
+  e.preventDefault()
+
+    const newPack = {
+      id: packages.length + 1,
+      name: document.querySelector("#name").value,
+      desc: document.querySelector("#desc").value,
+  }
+
+  packages.push(newPack);
+  packDom(packages);
+  form.reset();
+}
+
+form.addEventListener("submit", createPack);
 
 
 
+const startApp = () => {
+  if (window.location.href.includes("packages.html")) {
+    packDom(packages)
+  }
+}
+startApp()
+
+}
+
+if(window.location.href.includes("packages.html")) {
+
+  const packDom = (packages) => {
+    let packString = ""
+    for (const package of packages) {
+      packString += `
+  
+        <div class="packCard w-55">
+    <div class="pack-body">
+      <h5 class="pack-title">${package.name}</h5>
+      <p class="pack-text">${package.desc}</p>
+      </div>
+    </div>
+      
+      `
+    }
+  
+    renderToDom("#packRepo", packString)
+  }
+
+
+const form = document.querySelector("form")
+
+const createPack = (e) => {
+  e.preventDefault()
+
+    const newPack = {
+      id: packages.length + 1,
+      name: document.querySelector("#name").value,
+      desc: document.querySelector("#desc").value,
+  }
+
+  packages.push(newPack);
+  packDom(packages);
+  form.reset();
+}
+
+form.addEventListener("submit", createPack);
 
 
 
+const startApp = () => {
+  if (window.location.href.includes("packages.html")) {
+    packDom(packages)
+  }
+}
+startApp()
 
-
-
-
-
-
-
-
-
-
+}
