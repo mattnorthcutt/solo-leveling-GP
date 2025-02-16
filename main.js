@@ -1,4 +1,3 @@
-//port { pinnedRepos } from "./pinned.js"; 
 const pinRepos = [
     {
       id: 1,
@@ -199,27 +198,6 @@ const pinRepos = [
   }
 
 document.addEventListener('DOMContentLoaded', startApp);
-/*
-const createPin = (e) => {
-      e.preventDefault();
-
-      const newPinned = {
-        id: pinRepos.length + 1,
-        name: document.querySelector("#name").value,
-        desc: document.querySelector("#desc").value,
-      }
-
-      pinRepos.push(newPinned);
-      pinDom(pinRepos);
-      form.reset();
-    }
-   // const startApp = () => {
-    //  if (window.location.href.includes("index.html")) {
-     //   pinDom(pinRepos)
-     // }
-  //  }
- //   startApp()
-  
 
   /*
     const packDom = (packages) => {
@@ -255,62 +233,4 @@ const createPin = (e) => {
     packages.push(newPack);
     packDom(packages);
     form.reset();
-  }
-
-form.addEventListener("submit", createPack);
-  */
-
-//startApp();
-
-  
-  
-  /*
-  if(window.location.href.includes("packages.html")) {
-  
-    const packDom = (packages) => {
-      let packString = ""
-      for (const package of packages) {
-        packString += `
-    
-          <div class="packCard w-55">
-      <div class="pack-body">
-        <h5 class="pack-title">${package.name}</h5>
-        <p class="pack-text">${package.desc}</p>
-        </div>
-      </div>
-        
-        `
-      }
-    
-      renderToDom("#packRepo", packString)
-    }
-  
-  
-  const form = document.querySelector("form")
-  
-  const createPack = (e) => {
-    e.preventDefault()
-  
-      const newPack = {
-        id: packages.length + 1,
-        name: document.querySelector("#name").value,
-        desc: document.querySelector("#desc").value,
-    }
-  
-    packages.push(newPack);
-    packDom(packages);
-    form.reset();
-  }
-  
-  form.addEventListener("submit", createPack);
-  
-  
-  
-  const startApp = () => {
-    if (window.location.href.includes("packages.html")) {
-      packDom(packages)
-    }
-  }
-  startApp()
-  
   }*/
