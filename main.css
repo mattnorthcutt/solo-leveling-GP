@@ -1,14 +1,109 @@
 #row {
   display: flex;
+  margin-right: 20%;
+  margin-left: 1%;
 }
 
 .navbar{
   margin-top: 5px;
-  margin-left: 307px;
-  width: 750px;
+  margin-left: 20%;
+  margin-bottom: 20px;
+  width: 500px;
   height: 60px;
-  border: 2px solid grey;
+  border: 0px solid grey;
+  border-radius: 0px;
   background-color: lightgray;
+}
+.removeButton {
+  display:none;
+}
+
+#overview {
+  border:0px solid grey !important;
+  border-radius: 0px !important;
+}
+
+#repositories {
+  border:0px solid grey !important;
+  border-radius: 0px !important;
+}
+
+#projects{
+  border:0px solid grey !important;
+  border-radius: 0px !important;
+}
+
+#packages {
+  border:0px solid grey !important;
+  border-radius: 0px !important;
+}
+
+.container-fluid{
+  padding-left: 30px !important;
+}
+
+.flex-column{
+  margin-left: 15%;
+}
+.flex-column2{
+  margin-left: 15%;
+}
+
+/* Repository Section */
+.repo-section {
+  background-color: #fff;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  padding: 20px;
+  margin: auto;
+  
+}
+
+.repo-search {
+  padding: 10px;
+  margin-bottom: 10px !important;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  width: 100%;
+  margin: auto;
+  background-color: black;
+  color: white;
+}
+
+/* Project Section */
+.proj-section {
+  background-color: #fff;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  padding: 20px;
+  margin: auto;
+}
+
+.project-search {
+  padding: 10px;
+  margin-bottom: 10px !important;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  width: 100%;
+  margin: auto;
+  background-color: black;
+  color: white;
+}
+
+
+/* Form Section */
+.form-section {
+  background-color: #fff;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  padding: 20px;
+  margin-top: 30px;
+  /*margin: auto;*/
+}
+
+.pinForm input {
+  background-color: black;
+  color: white;
 }
 
 .footer {
