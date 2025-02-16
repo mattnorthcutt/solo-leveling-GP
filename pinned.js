@@ -1,6 +1,6 @@
-export const pinnedRepos = [
+/*export const pinnedRepos = [
   {
     id: 1,
     name: 
   }
-]
+]*/
