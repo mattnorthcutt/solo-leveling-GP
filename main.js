@@ -83,18 +83,18 @@ const pinRepos = [
     const pinDom = (pinRepos) => {
       let pinString = ""
 
-    for (const pinRepo of pinRepos) {
-      pinString += 
-      `<div class="pinCard w-55">
-        <div class="pin-body">
-          <h5 class="pin-title">${pinRepo.name}</h5>
-          <p class="pin-text">${pinRepo.desc}</p>
-        </div>
-      </div>`
+      for (const pinRepo of pinRepos) {
+        pinString += 
+        `<div class="pinCard w-55">
+          <div class="pin-body">
+            <h5 class="pin-title">${pinRepo.name}</h5>
+            <p class="pin-text">${pinRepo.desc}</p>
+          </div>
+        </div>`
+      }
+    
+      renderToDom('#pinRepo', pinString)
     }
-  
-    renderToDom('#pinRepo', pinString)
-  }
 
     const pinProjectsOnDom = (pinProjects) => {
       let pinString = ""
@@ -222,6 +222,7 @@ const pinRepos = [
         document.querySelector("#formSection").classList.add("removeButton")
         document.querySelector("#formSection2").classList.add("removeButton")
         document.querySelector("#repos").classList.add("removeButton")
+        document.querySelector("#repos-container").classList.add("removeButton")
         
       
       document.querySelector("#overview").addEventListener("click", () => {
@@ -234,17 +235,20 @@ const pinRepos = [
         document.querySelector("#formSection").classList.add("removeButton")
         document.querySelector("#formSection2").classList.add("removeButton")
         document.querySelector("#repos").classList.add("removeButton")
+        document.querySelector("#repos-container").classList.add("removeButton")
       })
       
       document.querySelector("#repositories").addEventListener("click", () => {
         //console.log("Repositories Clicked")
         document.querySelector("#pinRepos").classList.add("removeButton")
-        document.querySelector("#pinProjs").classList.toggle("removeButton")
+        document.querySelector("#pinProjs").classList.add("removeButton")
         document.querySelector("#pinRepo-search").classList.add("removeButton")
         document.querySelector("#formSection").classList.remove("removeButton")
         document.querySelector("#formSection2").classList.add("removeButton")
         document.querySelector("#repos").classList.remove("removeButton")
         document.querySelector("#repo-search").classList.remove("removeButton")
+        document.querySelector("#repo-search2").classList.add("removeButton")
+        document.querySelector("#repos-container").classList.remove("removeButton")
       })
       
       document.querySelector("#projects").addEventListener("click", () => {
@@ -257,6 +261,7 @@ const pinRepos = [
         document.querySelector("#repos").classList.add("removeButton")
         document.querySelector("#repo-search").classList.add("removeButton")
         document.querySelector("#pinRepo-search").classList.add("removeButton")
+        document.querySelector("#repos-container").classList.add("removeButton")
       })
         
       document.querySelector("#packages").addEventListener("click", () => {
@@ -269,53 +274,53 @@ const pinRepos = [
         console.log("Form Submitted")
         //e.preventDefault(e);
 
-    const newPinned = {
-      id: pinProjects.length + 1,
-      name: document.querySelector("#name").value,
-      desc: document.querySelector("#desc").value,
-    }
-    const newPinned2 = {
-      id: pinRepos.length + 1,
-      name: document.querySelector("#name").value,
-      desc: document.querySelector("#desc").value,
-    }
-    
-    
-    pinRepos.push(newPinned2);
-    pinDom(pinRepos);
-    //document.querySelector(".pinForm").reset();
-  })
+      const newPinned = {
+        id: pinProjects.length + 1,
+        name: document.querySelector("#name").value,
+        desc: document.querySelector("#desc").value,
+      }
+      const newPinned2 = {
+        id: pinRepos.length + 1,
+        name: document.querySelector("#name").value,
+        desc: document.querySelector("#desc").value,
+      }
+      
+      
+      pinRepos.push(newPinned2);
+      pinDom(pinRepos);
+      //document.querySelector(".pinForm").reset();
+    })
 
-  //Form Submission Event Listener and creation of new project
-  document.querySelector("#form-submit-2").addEventListener("click", () => {
-    console.log("Proj Form Submitted")
-    //e.preventDefault(e);
-    
-    const newPinned = {
+    //Form Submission Event Listener and creation of new project
+    document.querySelector("#form-submit-2").addEventListener("click", () => {
+      console.log("Proj Form Submitted")
+      //e.preventDefault(e);
+      
+      const newPinned = {
+        id: pinProjects.length + 1,
+        name: document.querySelector("#proj-name").value,
+        desc: document.querySelector("#proj-desc").value,
+      }
+      
+      pinProjects.push(newPinned);
+      pinProjectsOnDom(pinProjects);
+    })
+    /*
+    //Form Submission Event Listener and creation of new project
+    document.querySelector("#form-submit2").addEventListener("click", () => {
+      console.log("Form2 Submitted")
+      //e.preventDefault(e);
+
+    const newProject = {
       id: pinProjects.length + 1,
-      name: document.querySelector("#proj-name").value,
-      desc: document.querySelector("#proj-desc").value,
+      name: document.querySelector("#name").value,
+      desc: document.querySelector("#desc").value,
     }
-    
-    pinProjects.push(newPinned);
+
+    pinProjects.push(newProject);
     pinProjectsOnDom(pinProjects);
-  })
-  /*
-  //Form Submission Event Listener and creation of new project
-  document.querySelector("#form-submit2").addEventListener("click", () => {
-    console.log("Form2 Submitted")
-    //e.preventDefault(e);
-
-  const newProject = {
-    id: pinProjects.length + 1,
-    name: document.querySelector("#name").value,
-    desc: document.querySelector("#desc").value,
-  }
-
-  pinProjects.push(newProject);
-  pinProjectsOnDom(pinProjects);
-  //document.querySelector(".pinForm").reset();
-})*/
+    //document.querySelector(".pinForm").reset();
+  })*/
 
     }
     
@@ -333,36 +338,36 @@ const pinRepos = [
 
 document.addEventListener('DOMContentLoaded', startApp);
 
-/*
-  const packDom = (packages) => {
-    let packString = ""
-    for (const package of packages) {
-      packString += `
+  /*
+    const packDom = (packages) => {
+      let packString = ""
+      for (const package of packages) {
+        packString += `
 
-    <div class="packCard w-55">
-      <div class="pack-body">
-        <h5 class="pack-title">${package.name}</h5>
-        <p class="pack-text">${package.desc}</p>
+      <div class="packCard w-55">
+        <div class="pack-body">
+          <h5 class="pack-title">${package.name}</h5>
+          <p class="pack-text">${package.desc}</p>
+        </div>
       </div>
-    </div>
 
-      `
+        `
+      }
+
+      renderToDom("#packRepo", packString)
     }
 
-    renderToDom("#packRepo", packString)
-  }
 
+  //const form = document.querySelector("form")
 
-//const form = document.querySelector("form")
+  const createPack = (e) => {
+    e.preventDefault()
 
-const createPack = (e) => {
-  e.preventDefault()
-
-    const newPack = {
-      id: packages.length + 1,
-      name: document.querySelector("#name").value,
-      desc: document.querySelector("#desc").value,
-  }
+      const newPack = {
+        id: packages.length + 1,
+        name: document.querySelector("#name").value,
+        desc: document.querySelector("#desc").value,
+    }
 
     packages.push(newPack);
     packDom(packages);
