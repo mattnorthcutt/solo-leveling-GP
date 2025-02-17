@@ -324,9 +324,17 @@
   bottom: 0;
   width: 40px;
   height: 40px;
-  
+  margin-right: 20px;
 }
 
 .proj-section {
   background-color: lightgray;
+}
+
+.pack-section {
+  background-color: lightgray;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  padding: 20px;
+  margin: auto;
 }

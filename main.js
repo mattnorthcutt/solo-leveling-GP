@@ -56,6 +56,29 @@ const pinRepos = [
       desc: "A default package manager used for the Java programming language and the Java runtime environment."
     },
   ]
+
+  const packages = [
+    {
+      id: 1,
+      name: "Igris",
+      desc: "A package manager for Javascript, included with Node.js. Igris makes it easy for developers to share and reuse code."
+    },
+    {
+      id: 2,
+      name: "ShadowGet",
+      desc: "A free and open source package manager used for the Microsoft development platforms including .NET."
+    },
+    {
+      id: 3,
+      name: "Monarchs",
+      desc: "A single place for your team to manage Docker images and decide who can see and access your images."
+    },
+    {
+      id: 4,
+      name: "ShadowRuby",
+      desc: "A standard format for distributing Ruby programs and libraries used for the Ruby programming language."
+    }
+  ]
   
   //Utility Function
   const renderToDom = (divId, toRender) => {
@@ -63,7 +86,25 @@ const pinRepos = [
     selectedDiv.innerHTML = toRender;
     }
     
-    //render our repositories, pinned repositories, and projects
+    //render our packages, repositories, pinned repositories, and projects
+    const packDom = (packages) => {
+      let packString = ""
+      for (const package of packages) {
+        packString += `
+
+      <div class="pinCard w-55">
+        <div class="pin-body">
+          <h5 class="pin-title">${package.name}</h5>
+          <p class="pin-text">${package.desc}</p>
+        </div>
+      </div>
+
+        `
+      }
+
+      renderToDom("#pinPack", packString)
+    }
+
     const reposDom = (repos) => {
       let domString = ""
 
@@ -160,6 +201,30 @@ const pinRepos = [
       
         renderToDom('#pinProjForm', pinFormString)
     }
+
+    const packForm = () => {
+      let packString = `
+    
+      <div class="pinForm">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="packName" placeholder="name" required>
+        <label for="floatingInput">Package Name</label>
+      </div>
+      <div class="desc-form">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="packDesc" placeholder="desc" required>
+        <label for="floatingInput">Desc.</label>
+      </div>
+      </div>
+      <div class="form-btn">
+        <button type="submit" class="btn btn-primary btn-dark" id="form-submit-3">Create Package</button>
+      </div>
+      </div>
+        `
+      
+        renderToDom('#packageForm', packString)
+    }
+
     
     
     const gitNavBarFilter = () => {
@@ -200,6 +265,11 @@ const pinRepos = [
     <div id="pinProj"></div>
   </div> 
 
+  <div class="pack-section" id="pinPacks">
+    <input type="text" class="project-search" id="pack-search" placeholder="Find a Package">
+    <div id="pinPack"></div>
+  </div> 
+
   <div class="form-section" id="formSection">
     <h3>Create a new Repository</h3>
     <div id="pinForm"></div>
@@ -208,7 +278,14 @@ const pinRepos = [
   <div class="form-section" id="formSection2">
     <h3>Create a new Project</h3>
     <div id="pinProjForm"></div>
+  </div>
+  
+  <div class="form-section" id="formSection3">
+    <h3>Create a new Package</h3>
+    <div id="packageForm"></div>
   </div>`;
+
+  
   
       renderToDom('#flex-column', domString)
     }
@@ -223,6 +300,10 @@ const pinRepos = [
         document.querySelector("#formSection2").classList.add("removeButton")
         document.querySelector("#repos").classList.add("removeButton")
         document.querySelector("#repos-container").classList.add("removeButton")
+        document.querySelector("#pinPack").classList.add("removeButton")
+        document.querySelector("#packageForm").classList.add("removeButton")
+        document.querySelector("#pinPacks").classList.add("removeButton")
+        document.querySelector("#formSection3").classList.add("removeButton")
         
       
       document.querySelector("#overview").addEventListener("click", () => {
@@ -236,6 +317,9 @@ const pinRepos = [
         document.querySelector("#formSection2").classList.add("removeButton")
         document.querySelector("#repos").classList.add("removeButton")
         document.querySelector("#repos-container").classList.add("removeButton")
+        document.querySelector("#pinPack").classList.add("removeButton")
+        document.querySelector("#packageForm").classList.add("removeButton")
+        document.querySelector("#pinPacks").classList.add("removeButton")
       })
       
       document.querySelector("#repositories").addEventListener("click", () => {
@@ -249,6 +333,10 @@ const pinRepos = [
         document.querySelector("#repo-search").classList.remove("removeButton")
         document.querySelector("#repo-search2").classList.add("removeButton")
         document.querySelector("#repos-container").classList.remove("removeButton")
+        document.querySelector("#pinPack").classList.add("removeButton")
+        document.querySelector("#packageForm").classList.add("removeButton")
+        document.querySelector("#pinPacks").classList.add("removeButton")
+        document.querySelector("#formSection3").classList.add("removeButton")
       })
       
       document.querySelector("#projects").addEventListener("click", () => {
@@ -262,11 +350,27 @@ const pinRepos = [
         document.querySelector("#repo-search").classList.add("removeButton")
         document.querySelector("#pinRepo-search").classList.add("removeButton")
         document.querySelector("#repos-container").classList.add("removeButton")
+        document.querySelector("#pinPack").classList.add("removeButton")
+        document.querySelector("#packageForm").classList.add("removeButton")
+        document.querySelector("#pinPacks").classList.add("removeButton")
+        document.querySelector("#formSection3").classList.add("removeButton")
       })
         
       document.querySelector("#packages").addEventListener("click", () => {
         console.log("Packages Clicked")
-        
+        document.querySelector("#pinRepos").classList.add("removeButton")
+        document.querySelector("#pinProjs").classList.add("removeButton")
+        document.querySelector("#pinRepo-search").classList.add("removeButton")
+        document.querySelector("#formSection").classList.add("removeButton")
+        document.querySelector("#formSection2").classList.add("removeButton")
+        document.querySelector("#repos").classList.add("removeButton")
+        document.querySelector("#repo-search").classList.add("removeButton")
+        document.querySelector("#repo-search2").classList.add("removeButton")
+        document.querySelector("#repos-container").classList.add("removeButton")
+        document.querySelector("#pinPack").classList.remove("removeButton")
+        document.querySelector("#packageForm").classList.remove("removeButton")
+        document.querySelector("#pinPacks").classList.remove("removeButton")
+        document.querySelector("#formSection3").classList.remove("removeButton")
       })
       
       //Form Submission Event Listener and creation of new repository
@@ -305,6 +409,20 @@ const pinRepos = [
       pinProjects.push(newPinned);
       pinProjectsOnDom(pinProjects);
     })
+
+    document.querySelector("#form-submit-3").addEventListener("click", () => {
+      console.log("Pack Form Submitted")
+      //e.preventDefault(e);
+      
+      const newPack = {
+        id: packages.length + 1,
+        name: document.querySelector("#packName").value,
+        desc: document.querySelector("#packDesc").value,
+      }
+      
+      packages.push(newPack);
+      packDom(packages);
+    })
     /*
     //Form Submission Event Listener and creation of new project
     document.querySelector("#form-submit2").addEventListener("click", () => {
@@ -330,7 +448,9 @@ const pinRepos = [
     pinProjectsOnDom(pinProjects);  // Render the pinned projects
     pinDom(pinRepos);  // Render the pinned repositories
     pinForm();  // Render the form
-    pinProjForm();  // Render the form
+    pinProjForm();
+    packDom(packages) 
+    packForm() // Render the form
     // Event Listeners for the dom elements: Always Last to call this function, because HTML needs to be fully loaded
     eventListeners();
    // document.querySelector("#navBarFilter").addEventListener("submit", createPin);
