@@ -34,221 +34,10 @@ const pinProjects = [
   },
 ]
 
-    const pinProjectsOnDom = (pinProjects) => {
-      let pinString = ""
-    
-      for (const pinProject of pinProjects) {
-        pinString += 
-        `<div class="pinCard w-55">
-          <div class="pin-body">
-            <h5 class="pin-title">${pinProject.name}</h5>
-            <p class="pin-text">${pinProject.desc}</p>
-          </div>
-        </div>`
-      }
-    
-      renderToDom('#pinProj', pinString)
-    }
-    
-    
-    //render our pinForm
-    const pinForm = () => {
-      let pinFormString = `
-    
-      <div class="pinForm">
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="name" placeholder="name" required>
-        <label for="floatingInput">Repo Name</label>
-      </div>
-      <div class="desc-form">
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="desc" placeholder="desc" required>
-        <label for="floatingInput">Desc.</label>
-      </div>
-      </div>
-      <div class="form-btn">
-        <button type="submit" class="btn btn-primary btn-dark" id="form-submit">Create Pinned Repository</button>
-      </div>
-      </div>
-        `
-      
-        renderToDom('#pinForm', pinFormString)
-    }
-
-    //Pin Form for creating a new project
-    const pinProjForm = () => {
-      let pinFormString = `
-    
-      <div class="pinForm">
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="proj-name" placeholder="name" required>
-        <label for="floatingInput">Proj Name</label>
-      </div>
-      <div class="desc-form">
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="proj-desc" placeholder="desc" required>
-        <label for="floatingInput">Desc.</label>
-      </div>
-      </div>
-      <div class="form-btn">
-        <button type="submit" class="btn btn-primary btn-dark" id="form-submit-2">Create Pinned Project</button>
-      </div>
-      </div>
-        `
-      
-        renderToDom('#pinProjForm', pinFormString)
-    }
-    
-    
-    const gitNavBarFilter = () => {
-      const domString = `
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <button id="overview"><a class="nav-link active" aria-current="page" href="#">Overview</a></button>
-          </li>
-          <li class="nav-item">
-            <button id="repositories"><a class="nav-link" href="#">Repositories</a></button>
-          </li>
-          <li class="nav-item" id="pinProjss">
-            <button id="projects"><a class="nav-link" href="#">Projects</a></button>
-          </li>
-          <li class="nav-item">
-            <button id="packages"><a class="nav-link" href="#">Packages</a></button>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  
-  <div class="repo-section" id="pinRepos">
-    <input type="text" class="repo-search" id="repo-search" placeholder="Find a Repository">
-    <div id="pinRepo"></div>
-  </div>
-  <div class="proj-section" id="pinProjs">
-    <input type="text" class="project-search" id="repo-search2" placeholder="Find a Project">
-    <div id="pinProj"></div>
-  </div>
-  <div class="form-section" id="formSection">
-    <h3>Create a new Repository</h3>
-    <div id="pinForm"></div>
-  </div>
-  <div class="form-section" id="formSection2">
-    <h3>Create a new Project</h3>
-    <div id="pinProjForm"></div>
-  </div>`;
-  
-      renderToDom('#flex-column', domString)
-    }
-    
-    //Event Listeners
-    const eventListeners = () => {
-      
-        document.querySelector("#repo-search").classList.add("removeButton")
-        document.querySelector("#repo-search2").classList.add("removeButton")
-        document.querySelector("#formSection").classList.add("removeButton")
-        document.querySelector("#formSection2").classList.add("removeButton")
-      
-      document.querySelector("#overview").addEventListener("click", () => {
-        console.log("Overview Clicked")
-        document.querySelector("#pinRepos").classList.remove("removeButton")
-        document.querySelector("#pinProjs").classList.remove("removeButton")
-        document.querySelector("#repo-search").classList.add("removeButton")
-        document.querySelector("#repo-search2").classList.add("removeButton")
-        document.querySelector("#formSection").classList.add("removeButton")
-        document.querySelector("#formSection2").classList.add("removeButton")
-        
-      })
-      
-      document.querySelector("#repositories").addEventListener("click", () => {
-        //console.log("Repositories Clicked")
-        document.querySelector("#pinRepos").classList.remove("removeButton")
-        document.querySelector("#pinProjs").classList.toggle("removeButton")
-        document.querySelector("#repo-search").classList.remove("removeButton")
-        document.querySelector("#formSection").classList.remove("removeButton")
-        document.querySelector("#formSection2").classList.add("removeButton")
-      })
-      
-      document.querySelector("#projects").addEventListener("click", () => {
-        //console.log("Projects Clicked")
-        document.querySelector("#pinRepos").classList.toggle("removeButton")
-        document.querySelector("#pinProjs").classList.remove("removeButton")
-        document.querySelector("#repo-search2").classList.remove("removeButton")
-        document.querySelector("#formSection").classList.add("removeButton")
-        document.querySelector("#formSection2").classList.remove("removeButton")
-      })
-        
-      document.querySelector("#packages").addEventListener("click", () => {
-        console.log("Packages Clicked")
-        
-      })
-      
-      //Form Submission Event Listener and creation of new repository
-      document.querySelector("#form-submit").addEventListener("click", (e) => {
-        console.log("Form Submitted")
-        //e.preventDefault(e);
-
-      const newPinned = {
-        id: pinProjects.length + 1,
-        name: document.querySelector("#name").value,
-        desc: document.querySelector("#desc").value,
-      }
-      const newPinned2 = {
-        id: pinRepos.length + 1,
-        name: document.querySelector("#name").value,
-        desc: document.querySelector("#desc").value,
-      }
-      
-      
-      pinRepos.push(newPinned2);
-      pinDom(pinRepos);
-      //document.querySelector(".pinForm").reset();
-    })
-
-    //Form Submission Event Listener and creation of new project
-    document.querySelector("#form-submit-2").addEventListener("click", () => {
-      console.log("Proj Form Submitted")
-      //e.preventDefault(e);
-      
-      const newPinned = {
-        id: pinProjects.length + 1,
-        name: document.querySelector("#proj-name").value,
-        desc: document.querySelector("#proj-desc").value,
-      }
-      
-      pinProjects.push(newPinned);
-      pinProjectsOnDom(pinProjects);
-    })
-    /*
-    //Form Submission Event Listener and creation of new project
-    document.querySelector("#form-submit2").addEventListener("click", () => {
-      console.log("Form2 Submitted")
-      //e.preventDefault(e);
-
-    const newProject = {
-      id: pinProjects.length + 1,
-      name: document.querySelector("#name").value,
-      desc: document.querySelector("#desc").value,
-    }
-
-    pinProjects.push(newProject);
-    pinProjectsOnDom(pinProjects);
-    //document.querySelector(".pinForm").reset();
-  })*/
-
-    }
-    
-    const startApp = () => {
-    gitNavBarFilter();// Render the navigation bar
-    pinProjectsOnDom(pinProjects);  // Render the pinned projects
-    pinDom(pinRepos);  // Render the pinned repositories
-    pinForm();  // Render the form
-    pinProjForm();  // Render the form
-    // Event Listeners for the dom elements: Always Last to call this function, because HTML needs to be fully loaded
-    eventListeners();
-   // document.querySelector("#navBarFilter").addEventListener("submit", createPin);
+//Utility Function
+const renderToDom = (divId, toRender) => {
+  const selectedDiv = document.querySelector(divId);
+  selectedDiv.innerHTML = toRender;
   }
   
   //render our pinned repositories and projects
@@ -268,15 +57,15 @@ const pinProjects = [
     renderToDom('#pinRepo', pinString)
   }
 
-  const pinProjectsOnDom = (pinProj) => {
+  const pinProjectsOnDom = (pinProjects) => {
     let pinString = ""
-
-    for (const pinProjects of pinProj) {
+  
+    for (const pinProject of pinProjects) {
       pinString += 
       `<div class="pinCard w-55">
         <div class="pin-body">
-          <h5 class="pin-title">${pinProjects.name}</h5>
-          <p class="pin-text">${pinProjects.desc}</p>
+          <h5 class="pin-title">${pinProject.name}</h5>
+          <p class="pin-text">${pinProject.desc}</p>
         </div>
       </div>`
     }
@@ -301,12 +90,36 @@ const pinProjects = [
     </div>
     </div>
     <div class="form-btn">
-      <button type="submit" class="btn btn-primary btn-dark" id="form-submit">Create Repo</button>
+      <button type="submit" class="btn btn-primary btn-dark" id="form-submit">Create Pinned Repository</button>
     </div>
     </div>
       `
-  
+    
       renderToDom('#pinForm', pinFormString)
+  }
+
+  //Pin Form for creating a new project
+  const pinProjForm = () => {
+    let pinFormString = `
+  
+    <div class="pinForm">
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="proj-name" placeholder="name" required>
+      <label for="floatingInput">Proj Name</label>
+    </div>
+    <div class="desc-form">
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="proj-desc" placeholder="desc" required>
+      <label for="floatingInput">Desc.</label>
+    </div>
+    </div>
+    <div class="form-btn">
+      <button type="submit" class="btn btn-primary btn-dark" id="form-submit-2">Create Pinned Project</button>
+    </div>
+    </div>
+      `
+    
+      renderToDom('#pinProjForm', pinFormString)
   }
   
   
@@ -334,16 +147,20 @@ const pinProjects = [
 </nav>
 
 <div class="repo-section" id="pinRepos">
-  <input type="text" class="repo-search" id="repo-search" placeholder="Find a repository">
+  <input type="text" class="repo-search" id="repo-search" placeholder="Find a Repository">
   <div id="pinRepo"></div>
 </div>
 <div class="proj-section" id="pinProjs">
   <input type="text" class="project-search" id="repo-search2" placeholder="Find a Project">
   <div id="pinProj"></div>
 </div>
-<div class="form-section">
-  <h3>Create a new repository</h3>
+<div class="form-section" id="formSection">
+  <h3>Create a new Repository</h3>
   <div id="pinForm"></div>
+</div>
+<div class="form-section" id="formSection2">
+  <h3>Create a new Project</h3>
+  <div id="pinProjForm"></div>
 </div>`;
 
     renderToDom('#flex-column', domString)
@@ -351,28 +168,39 @@ const pinProjects = [
   
   //Event Listeners
   const eventListeners = () => {
+    
+      document.querySelector("#repo-search").classList.add("removeButton")
+      document.querySelector("#repo-search2").classList.add("removeButton")
+      document.querySelector("#formSection").classList.add("removeButton")
+      document.querySelector("#formSection2").classList.add("removeButton")
+    
     document.querySelector("#overview").addEventListener("click", () => {
       console.log("Overview Clicked")
       document.querySelector("#pinRepos").classList.remove("removeButton")
       document.querySelector("#pinProjs").classList.remove("removeButton")
       document.querySelector("#repo-search").classList.add("removeButton")
       document.querySelector("#repo-search2").classList.add("removeButton")
+      document.querySelector("#formSection").classList.add("removeButton")
+      document.querySelector("#formSection2").classList.add("removeButton")
+      
     })
     
     document.querySelector("#repositories").addEventListener("click", () => {
       //console.log("Repositories Clicked")
       document.querySelector("#pinRepos").classList.remove("removeButton")
-      document.querySelector("#pinProjs").classList.toggle("removeButton")
+      document.querySelector("#pinProjs").classList.add("removeButton")
       document.querySelector("#repo-search").classList.remove("removeButton")
-    
+      document.querySelector("#formSection").classList.remove("removeButton")
+      document.querySelector("#formSection2").classList.add("removeButton")
     })
     
-    document.querySelector("#projects").addEventListener("click", (e) => {
+    document.querySelector("#projects").addEventListener("click", () => {
       //console.log("Projects Clicked")
-      e.preventDefault(e);
-      document.querySelector("#pinRepos").classList.toggle("removeButton")
+      document.querySelector("#pinRepos").classList.add("removeButton")
       document.querySelector("#pinProjs").classList.remove("removeButton")
       document.querySelector("#repo-search2").classList.remove("removeButton")
+      document.querySelector("#formSection").classList.add("removeButton")
+      document.querySelector("#formSection2").classList.remove("removeButton")
     })
       
     document.querySelector("#packages").addEventListener("click", () => {
@@ -383,18 +211,56 @@ const pinProjects = [
     //Form Submission Event Listener and creation of new repository
     document.querySelector("#form-submit").addEventListener("click", (e) => {
       console.log("Form Submitted")
-      e.preventDefault(e);
+      //e.preventDefault(e);
 
     const newPinned = {
+      id: pinProjects.length + 1,
+      name: document.querySelector("#name").value,
+      desc: document.querySelector("#desc").value,
+    }
+    const newPinned2 = {
       id: pinRepos.length + 1,
       name: document.querySelector("#name").value,
       desc: document.querySelector("#desc").value,
     }
-
-    pinRepos.push(newPinned);
+    
+    
+    pinRepos.push(newPinned2);
     pinDom(pinRepos);
     //document.querySelector(".pinForm").reset();
   })
+
+  //Form Submission Event Listener and creation of new project
+  document.querySelector("#form-submit-2").addEventListener("click", () => {
+    console.log("Proj Form Submitted")
+    //e.preventDefault(e);
+    
+    const newPinned = {
+      id: pinProjects.length + 1,
+      name: document.querySelector("#proj-name").value,
+      desc: document.querySelector("#proj-desc").value,
+    }
+    
+    pinProjects.push(newPinned);
+    pinProjectsOnDom(pinProjects);
+  })
+  /*
+  //Form Submission Event Listener and creation of new project
+  document.querySelector("#form-submit2").addEventListener("click", () => {
+    console.log("Form2 Submitted")
+    //e.preventDefault(e);
+
+  const newProject = {
+    id: pinProjects.length + 1,
+    name: document.querySelector("#name").value,
+    desc: document.querySelector("#desc").value,
+  }
+
+  pinProjects.push(newProject);
+  pinProjectsOnDom(pinProjects);
+  //document.querySelector(".pinForm").reset();
+})*/
+
   }
   
   const startApp = () => {
@@ -402,7 +268,7 @@ const pinProjects = [
   pinProjectsOnDom(pinProjects);  // Render the pinned projects
   pinDom(pinRepos);  // Render the pinned repositories
   pinForm();  // Render the form
-  
+  pinProjForm();  // Render the form
   // Event Listeners for the dom elements: Always Last to call this function, because HTML needs to be fully loaded
   eventListeners();
  // document.querySelector("#navBarFilter").addEventListener("submit", createPin);
