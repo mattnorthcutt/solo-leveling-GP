@@ -136,3 +136,15 @@
   position: absolute;
   top: 0;
 }
+
+
+
+
+.newRepoForm {
+  position: absolute;
+  top: 0;
+  border: 2px solid grey;
+  margin-top: 600px;
+  margin-left: 600px;
+  width: 750px;
+}
