@@ -128,6 +128,8 @@
   margin-top: 10px;
   margin-left: 10px;
   margin-right: 10px;
+  text-decoration-color: black;
+  color: black;
 }
 
 .proCard {
@@ -142,7 +144,8 @@
   display: flex;
   align-items: center;
   border-radius: 150px;
-  margin-left: 28px;
+  margin-left: 15px;
+  margin-right: 15px;
   margin-top: 5px;
 }
 
@@ -168,4 +171,146 @@
   border-radius: 180px;
   margin-left: 2px;
   margin-bottom: 2px;
+}
+
+.proCard-title {
+  margin-left: 2px;
+}
+
+.proCard-pref {
+  margin-left: 2px;
+}
+
+.proCard-text {
+  text-align: left;
+  font-size: 14px;
+}
+
+.proButton-body {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 3px;
+  margin-left: 3px;
+}
+
+.proFollowing-body {
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 3px;
+}
+
+.proMisc-body {
+  margin-bottom: 3px;
+}
+
+.proLoco {
+  margin-left: 6px;
+  font-size: 15px;
+}
+
+.proEmail {
+  margin-left: 6px;
+  font-size: 15px;
+}
+
+.proLink {
+  margin-left: 4px;
+  font-size: 15px;
+}
+
+.proTwitter {
+  margin-left: 6px;
+  font-size: 15px;
+}
+
+#highTitle {
+  margin-left: 3px;
+
+
+  /*position: relative;
+  animation-name: highlights;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;*/
+}
+
+/*@keyframes highlights {
+  0%   { left:0px; top:0px;}
+  25%  { left:160px; top:0px;}
+  
+  75%  { left:0px; top:0px;}
+  100% {left:0px; top:0px;}
+}*/
+
+#orgTitle {
+  margin-left: 3px;
+  
+  
+  
+  /*position: relative;
+  animation-name: org;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;*/
+}
+
+/*@keyframes org {
+  0%   { left:0px; top:0px;}
+  25%  { left:130px; top:0px;}
+  
+  75%  { left:0px; top:0px;}
+  100% {left:0px; top:0px;}
+}*/
+
+#spnsrTitle {
+  margin-left: 3px;
+}
+
+.sponsor1 {
+  border-radius: 100px;
+  width: 50px;
+  height: 50px;
+}
+
+.sponsor2 {
+  border-radius: 100px;
+  width: 50px;
+  height: 50px;
+}
+
+.sponsor3 {
+  border-radius: 100px;
+  width: 50px;
+  height: 50px;
+}
+
+.gunHee {
+  width: 42px;
+  height: 42px;
+  border-radius: 180px;
+  margin-left: 2px;
+  margin-bottom: 2px;
+}
+
+.jooHee {
+  width: 42px;
+  height: 42px;
+  border-radius: 180px;
+  margin-left: 2px;
+  margin-bottom: 2px;
+}
+
+.andre {
+  width: 42px;
+  height: 42px;
+  border-radius: 180px;
+  margin-left: 2px;
+  margin-bottom: 2px;
+}
+
+.gitLogo {
+  position: absolute;
+  bottom: 0;
+  width: 40px;
+  height: 40px;
+  
 }
