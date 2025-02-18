@@ -2,22 +2,22 @@ const repos = [
   {
     id: 1,
     name: "Code-crafted-studio",
-    description: "A collection of meticulously crafted code, algorithms, and projects to explore and learn from."
+    desc: "A collection of meticulously crafted code, algorithms, and projects to explore and learn from."
   },
   {
     id: 2, 
     name: "Eclipse-Codeworks",
-    description: "A playground for creative coding, game development, and AI-driven applications."
+    desc: "A playground for creative coding, game development, and AI-driven applications."
   },
   {
     id: 3,
     name: "Pixel-pioneer-projects",
-    description: "Explore creative coding projects that combine design, development, and the art of programming."
+    desc: "Explore creative coding projects that combine design, development, and the art of programming."
   },
   {
     id: 4,
     name: "ShadowTech-forge",
-    description: "A collection of projects exploring AI, automation, and next-gen coding solutions."
+    desc: "A collection of projects exploring AI, automation, and next-gen coding solutions."
   }
 ]
 
