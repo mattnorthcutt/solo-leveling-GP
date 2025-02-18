@@ -110,10 +110,10 @@ const pinRepos = [
 
       for (const repo of repos) {
         domString += 
-        `<div class="repoCard w-55">
-          <div class="repo-body">
-            <h5 class="repo-title">${repo.name}</h5>
-            <p class="repo-text">${repo.desc}</p>
+        `<div class="pinCard w-55">
+          <div class="pin-body">
+            <h5 class="pin-title">${repo.name}</h5>
+            <p class="pin-text">${repo.desc}</p>
           </div>
         </div>`
       }
@@ -255,7 +255,7 @@ const pinRepos = [
     <div id="repos"></div>
   </div>
 
-<div class="repo-section" id="pinRepos">
+  <div class="repo-section" id="pinRepos">
     <input type="text" class="repo-search" id="pinRepo-search" placeholder="Find a Repository">
     <div id="pinRepo"></div>
   </div>
@@ -291,7 +291,7 @@ const pinRepos = [
     }
     
     //Event Listeners
-    const eventListeners = () => {
+    const eventListeners = (e) => {
       
         document.querySelector("#pinRepo-search").classList.add("removeButton")
         document.querySelector("#repo-search").classList.add("removeButton")
@@ -306,7 +306,7 @@ const pinRepos = [
         document.querySelector("#formSection3").classList.add("removeButton")
         
       
-      document.querySelector("#overview").addEventListener("click", () => {
+      document.querySelector("#overview").addEventListener("click", (e) => {
         console.log("Overview Clicked")
         document.querySelector("#pinRepos").classList.remove("removeButton")
         document.querySelector("#pinProjs").classList.remove("removeButton")
@@ -323,7 +323,7 @@ const pinRepos = [
         document.querySelector("#formSection3").classList.add("removeButton")
       })
       
-      document.querySelector("#repositories").addEventListener("click", () => {
+      document.querySelector("#repositories").addEventListener("click", (e) => {
         //console.log("Repositories Clicked")
         document.querySelector("#pinRepos").classList.add("removeButton")
         document.querySelector("#pinProjs").classList.add("removeButton")
@@ -340,7 +340,7 @@ const pinRepos = [
         document.querySelector("#formSection3").classList.add("removeButton")
       })
       
-      document.querySelector("#projects").addEventListener("click", () => {
+      document.querySelector("#projects").addEventListener("click", (e) => {
         //console.log("Projects Clicked")
         document.querySelector("#pinRepos").classList.add("removeButton")
         document.querySelector("#pinProjs").classList.remove("removeButton")
@@ -357,7 +357,7 @@ const pinRepos = [
         document.querySelector("#formSection3").classList.add("removeButton")
       })
         
-      document.querySelector("#packages").addEventListener("click", () => {
+      document.querySelector("#packages").addEventListener("click", (e) => {
         console.log("Packages Clicked")
         document.querySelector("#pinRepos").classList.add("removeButton")
         document.querySelector("#pinProjs").classList.add("removeButton")
@@ -420,6 +420,30 @@ const pinRepos = [
       packages.push(newPack);
       packDom(packages);
     })
+
+    // Add event listeners to the search input fields
+    document.querySelector("#repo-search").addEventListener("input", (e) => {
+      filterCards(e.target.value, "#repos .pinCard");
+    });
+    document.querySelector("#repo-search2").addEventListener("input", (e) => {
+      filterCards(e.target.value, "#pinProj .pinCard");
+    });
+    document.querySelector("#pack-search").addEventListener("input", (e) => {
+      filterCards(e.target.value, "#pinPack .pinCard");
+    });
+
+    // Function to filter cards based on the input value
+    const filterCards = (searchValue, cardSelector) => {
+      const cards = document.querySelectorAll(cardSelector);
+      cards.forEach(card => {
+        const cardTitle = card.querySelector(".pin-title").textContent.toLowerCase();
+        if (cardTitle.includes(searchValue.toLowerCase())) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    };
     /*
     //Form Submission Event Listener and creation of new project
     document.querySelector("#form-submit2").addEventListener("click", () => {
@@ -439,7 +463,7 @@ const pinRepos = [
 
     }
     
-    const startApp = () => {
+    const startApp = (e) => {
     gitNavBarFilter();// Render the navigation bar
     reposDom(repos); // Render the repos
     pinProjectsOnDom(pinProjects);  // Render the pinned projects
@@ -449,7 +473,7 @@ const pinRepos = [
     packDom(packages) 
     packForm() // Render the form
     // Event Listeners for the dom elements: Always Last to call this function, because HTML needs to be fully loaded
-    eventListeners();
+    eventListeners(e);
    // document.querySelector("#navBarFilter").addEventListener("submit", createPin);
   }
 
