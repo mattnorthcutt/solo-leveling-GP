@@ -320,6 +320,7 @@ const pinRepos = [
         document.querySelector("#pinPack").classList.add("removeButton")
         document.querySelector("#packageForm").classList.add("removeButton")
         document.querySelector("#pinPacks").classList.add("removeButton")
+        document.querySelector("#formSection3").classList.add("removeButton")
       })
       
       document.querySelector("#repositories").addEventListener("click", () => {
