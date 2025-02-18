@@ -113,7 +113,7 @@ const pinRepos = [
         `<div class="repoCard w-55">
           <div class="repo-body">
             <h5 class="repo-title">${repo.name}</h5>
-            <p class="repo-text">${repo.description}</p>
+            <p class="repo-text">${repo.desc}</p>
           </div>
         </div>`
       }
@@ -160,13 +160,13 @@ const pinRepos = [
     
       <div class="pinForm">
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="name" placeholder="name" required>
+        <input type="text" class="form-control" id="repo-name" placeholder="name" required>
         <label for="floatingInput">Repository Name</label>
       </div>
       <div class="desc-form">
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="desc" placeholder="desc" required>
-        <label for="floatingInput">Description</label>
+        <input type="text" class="form-control" id="repo-desc" placeholder="desc" required>
+        <label for="floatingInput">Desc.</label>
       </div>
       </div>
       <div class="form-btn">
@@ -375,24 +375,20 @@ const pinRepos = [
       })
       
       //Form Submission Event Listener and creation of new repository
-      document.querySelector("#form-submit").addEventListener("click", (e) => {
+      document.querySelector("#form-submit").addEventListener("click", () => {
         console.log("Form Submitted")
-        //e.preventDefault(e);
+        //e.preventDefault();
 
-      const newPinned = {
-        id: pinProjects.length + 1,
-        name: document.querySelector("#name").value,
-        desc: document.querySelector("#desc").value,
-      }
-      const newPinned2 = {
-        id: pinRepos.length + 1,
-        name: document.querySelector("#name").value,
-        desc: document.querySelector("#desc").value,
+    
+      const newRepo = {
+        id: repos.length + 1,
+        name: document.querySelector("#repo-name").value,
+        desc: document.querySelector("#repo-desc").value,
       }
       
       
-      pinRepos.push(newPinned2);
-      pinDom(pinRepos);
+      repos.push(newRepo);
+      reposDom(repos);
       //document.querySelector(".pinForm").reset();
     })
 

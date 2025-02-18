@@ -130,6 +130,7 @@
   background-color: lightgray;
   height: 50px;
   margin-bottom: 5px;
+  border-radius: 6px;
 }
 
 .proFollowing-body {
@@ -150,6 +151,7 @@
   border: 2px solid grey;
   background-color: lightgrey;
   margin-bottom: 50px;
+  border-radius: 6px;
 }
 
 .jinWoo {
@@ -196,6 +198,7 @@
 .proCard-text {
   text-align: left;
   font-size: 14px;
+  margin-left: 3px;
 }
 
 .proButton-body {
@@ -236,15 +239,15 @@
   font-size: 15px;
 }
 
-#highTitle {
+/*#highTitle {
   margin-left: 3px;
 
 
-  /*position: relative;
+  position: relative;
   animation-name: highlights;
   animation-duration: 8s;
-  animation-iteration-count: infinite;*/
-}
+  animation-iteration-count: infinite;
+}*/
 
 /*@keyframes highlights {
   0%   { left:0px; top:0px;}
@@ -337,4 +340,8 @@
   border-radius: 6px;
   padding: 20px;
   margin: auto;
+}
+
+.proHigh-body {
+  margin-left: 3px;
 }
